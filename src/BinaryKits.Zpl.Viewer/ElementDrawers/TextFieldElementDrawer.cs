@@ -2,6 +2,7 @@ using BinaryKits.Zpl.Label.Elements;
 using BinaryKits.Zpl.Viewer.Helpers;
 using SkiaSharp;
 using SkiaSharp.HarfBuzz;
+using System.Text;
 
 namespace BinaryKits.Zpl.Viewer.ElementDrawers
 {
@@ -53,6 +54,8 @@ namespace BinaryKits.Zpl.Viewer.ElementDrawers
                 if (textField.UseHexadecimalIndicator)
                 {
                     displayText = displayText.ReplaceHexEscapes();
+                    byte[] b = Encoding.GetEncoding("ISO-8859-1").GetBytes(displayText);
+                    displayText = Encoding.UTF8.GetString(b);
                 }
 
                 if (options.ReplaceDashWithEnDash)
