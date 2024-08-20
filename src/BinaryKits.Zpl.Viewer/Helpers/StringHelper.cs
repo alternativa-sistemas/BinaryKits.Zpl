@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace BinaryKits.Zpl.Viewer.Helpers
@@ -19,7 +20,9 @@ namespace BinaryKits.Zpl.Viewer.Helpers
         public static string ReplaceHexEscapes(this string text)
         {
             Regex hexEscapeRegex = new Regex(Regex.Escape(ReplaceChar.ToString()) + @"([0-9A-Fa-f]{2})");
-            return hexEscapeRegex.Replace(text, match => Convert.ToChar(int.Parse(match.Groups[1].Value, NumberStyles.HexNumber)).ToString());
+            var str=hexEscapeRegex.Replace(text, match => Convert.ToChar(int.Parse(match.Groups[1].Value, NumberStyles.HexNumber)).ToString());
+            byte[] b = Encoding.GetEncoding("ISO-8859-1").GetBytes(str);
+            return Encoding.UTF8.GetString(b);
         }
     }
 }
