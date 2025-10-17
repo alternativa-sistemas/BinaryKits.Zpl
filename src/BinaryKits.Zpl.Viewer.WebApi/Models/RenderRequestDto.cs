@@ -22,5 +22,7 @@
         /// File type
         /// </summary>
         public string Type { get; set; } = "image";
+
+        public int PageOnly { get; set; } = -1;
     }
 }
