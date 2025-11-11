@@ -36,10 +36,13 @@ namespace BinaryKits.Zpl.Viewer.WebApi
                 });
             }
 
-            services.AddSwaggerGen(options =>
-            {
+            services.AddSwaggerGen(options => {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "BinaryKits.Zpl.Viewer.WebApi", Version = "v1" });
             });
+            services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
+            {
+                options.KeyLengthLimit = 4096 * 2; // Increase the limit to 4096 characters (or a suitable value)
+            });            
 
         }
 
