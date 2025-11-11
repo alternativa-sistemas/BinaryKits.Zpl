@@ -134,7 +134,7 @@ namespace BinaryKits.Zpl.Viewer.WebApi.Controllers
             var analyzeInfo = analyzer.Analyze(request.ZplData);
 
             var actualpage = -1;
-            totalpages = analyzeInfo.LabelInfos.Length;
+            totalpages = 0;
             foreach (var labelInfo in analyzeInfo.LabelInfos)
             {
                 actualpage++;
@@ -146,6 +146,7 @@ namespace BinaryKits.Zpl.Viewer.WebApi.Controllers
                 {
                     continue;
                 }
+                totalpages++;
 
                 // Draw the label as PNG and return it directly
                 var imageData = drawer.Draw(labelInfo.ZplElements, request.LabelWidth, request.LabelHeight, request.PrintDensityDpmm);
