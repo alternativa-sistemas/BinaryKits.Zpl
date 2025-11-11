@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,8 +42,13 @@ namespace BinaryKits.Zpl.Viewer.WebApi.Controllers
         {
             try
             {
-                using var reader = new System.IO.StreamReader(Request.Body, System.Text.Encoding.UTF8);
-                var content = await reader.ReadToEndAsync();
+                Request.EnableBuffering();
+                Request.Body.Seek(0, SeekOrigin.Begin);
+                string content;
+                using (var reader = new System.IO.StreamReader(Request.Body, System.Text.Encoding.UTF8, leaveOpen: true))
+                {
+                    content = await reader.ReadToEndAsync();                   
+                }
 
                 if (string.IsNullOrWhiteSpace(content))
                 {
