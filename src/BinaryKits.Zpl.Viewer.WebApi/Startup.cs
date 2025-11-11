@@ -41,7 +41,7 @@ namespace BinaryKits.Zpl.Viewer.WebApi
             });
             services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
             {
-                options.KeyLengthLimit = 4096 * 2; // Increase the limit to 4096 characters (or a suitable value)
+                options.KeyLengthLimit = 1024 * 50; 
             });            
 
         }
