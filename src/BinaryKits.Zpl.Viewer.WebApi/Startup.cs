@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using BinaryKits.Zpl.Viewer.WebApi.Middleware;
 
 namespace BinaryKits.Zpl.Viewer.WebApi
 {
@@ -64,7 +65,7 @@ namespace BinaryKits.Zpl.Viewer.WebApi
                 context.Request.EnableBuffering();
                 return next();
             });
-            
+            app.UseMiddleware<RequestLoggingMiddleware>();
             app.UseRouting();
 
             app.UseDefaultFiles();
