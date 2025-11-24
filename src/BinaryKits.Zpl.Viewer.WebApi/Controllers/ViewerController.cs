@@ -142,12 +142,12 @@ namespace BinaryKits.Zpl.Viewer.WebApi.Controllers
             var actualpage = -1;
             totalpages = 0;
             foreach (var labelInfo in analyzeInfo.LabelInfos)
-            {
-                actualpage++;
+            {                
                 if (labelInfo.ZplElements?.Length <= 0)
                 {
                     continue;
                 }
+                actualpage++;
                 if (request.PageOnly >= 0 && actualpage != request.PageOnly)
                 {
                     continue;
