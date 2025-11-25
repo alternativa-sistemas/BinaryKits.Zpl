@@ -22,8 +22,9 @@ namespace BinaryKits.Zpl.Label.Elements
         /// <param name="hexadecimalIndicator"></param>
         /// <param name="printInterpretationLine"></param>
         /// <param name="printInterpretationLineAboveCode"></param>
-        /// <param name="bottomToTop"></param>
         /// <param name="checkDigit"></param>
+        /// <param name="bottomToTop"></param>
+        /// <param name="useDefaultPosition"></param>
         public ZplBarcode93(
             string content,
             int positionX,
@@ -36,7 +37,8 @@ namespace BinaryKits.Zpl.Label.Elements
             bool printInterpretationLine = true,
             bool printInterpretationLineAboveCode = false,
             bool checkDigit = false,
-            bool bottomToTop = false)
+            bool bottomToTop = false,
+            bool useDefaultPosition = false)
             : base(content,
                   positionX,
                   positionY,
@@ -47,7 +49,8 @@ namespace BinaryKits.Zpl.Label.Elements
                   hexadecimalIndicator,
                   printInterpretationLine,
                   printInterpretationLineAboveCode,
-                  bottomToTop)
+                  bottomToTop,
+                  useDefaultPosition)
         {
             this.CheckDigit = checkDigit;
         }
