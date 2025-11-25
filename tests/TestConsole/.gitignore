@@ -1,0 +1,35 @@
+# Ignore all DLL files and dependencies
+*.dll
+*.pdb
+*.xml
+*.dylib
+
+# Ignore native libraries folders
+x86/
+x64/
+arm64/
+
+# Ignore Delphi build outputs
+*.exe
+*.dcu
+*.res
+*.rsm
+*.identcache
+*.local
+*.delphilsp.json
+__recovery/
+
+# Ignore .NET build outputs
+bin/
+obj/
+
+# Ignore test outputs
+*.png
+*.txt
+
+# Keep source files
+!*.dpr
+!*.pas
+!*.cs
+!*.csproj
+!.gitignore
