@@ -29,7 +29,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="SixLabors.ImageSharp" Version="2.1.12" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.2.0" />
       </ItemGroup>
     </Otherwise>
   </Choose>
